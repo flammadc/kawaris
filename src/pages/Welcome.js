@@ -11,7 +11,7 @@ const Welcome = () => {
         <h2 className="text-lg font-semibold text-gray-600 mb-8">
           Web penghitung harta warisan
         </h2>
-        <Button size="large" onClick={() => alert("ok")}>
+        <Button size="large" tag={Link} to="/form">
           Hitung warisan
         </Button>
 

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import DataPewaris from "./DataPewaris";
 import DataHarta from "./DataHarta";
@@ -7,6 +8,7 @@ import Hasil from "./Hasil";
 import { IoIosArrowBack } from "react-icons/io";
 import PageTitle from "../components/Typography/PageTitle";
 import { Card, CardBody, Button } from "@windmill/react-ui";
+import { BrowserRouter as Router, Link, NavLink } from "react-router-dom";
 
 function Form() {
   const [page, setPage] = useState(0);
@@ -60,11 +62,11 @@ function Form() {
               className={page === 0 ? "hidden" : ""}
             />
           </button>
-          <h1 className="font-bold text-2xl cursor-pointer">Kawaris</h1>
+          <Link className="font-bold text-2xl cursor-pointer" to="/">Kawaris</Link>
         </div>
       </header>
 
-      <main className="lg:px-64 px-8">
+      <main className="lg:px-64 px-8 pb-24">
         <PageTitle>{FormTitles[page]}</PageTitle>
 
         <Card>
