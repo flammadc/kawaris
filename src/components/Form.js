@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import DataPewaris from "./DataPewaris";
 import DataHarta from "./DataHarta";
 import DataKeluarga from "./DataKeluarga";
+import DataKeluargaNikah from "./DataKeluargaNikah";
 import Ringkasan from "./Ringkasan";
 import Hasil from "./Hasil";
 import { IoIosArrowBack } from "react-icons/io";
@@ -26,6 +27,7 @@ function Form() {
   const FormTitles = [
     "Data Pewaris",
     "Data Harta",
+    "Data Keluarga Inti",
     "Data Keluarga",
     "Ringkasan",
     "Hasil",
@@ -37,8 +39,10 @@ function Form() {
     } else if (page === 1) {
       return <DataHarta formData={formData} setFormData={setFormData} />;
     } else if (page === 2) {
-      return <DataKeluarga formData={formData} setFormData={setFormData} />;
+      return <DataKeluargaNikah formData={formData} setFormData={setFormData} />;
     } else if (page === 3) {
+      return <DataKeluarga formData={formData} setFormData={setFormData} />;
+    } else if (page === 4) {
       return <Ringkasan formData={formData} setFormData={setFormData} />;
     } else {
       return <Hasil />;
@@ -87,7 +91,7 @@ function Form() {
             }}
             size="large"
           >
-            {page == 3 ? "Hitung" : "Lanjut"}
+            {page == 4 ? "Hitung" : "Lanjut"}
           </Button>
         </footer>
       </div>

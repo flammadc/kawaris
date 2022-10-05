@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Input, HelperText, Label, Select, Textarea } from "@windmill/react-ui";
 
 function SignUpInfo() {
-  const [siblings, setSiblings] = useState(0);
+  const [saudaraLk, setSaudaraLk] = useState(0);
+  const [saudaraPr, setSaudaraPr] = useState(0);
   const [ibu, setIbu] = useState(true);
   return (
     <>
@@ -45,9 +46,9 @@ function SignUpInfo() {
           <Input
             type="number"
             name="Saudara"
-            value={siblings}
+            value={saudaraLk}
             style={{ width: 64, textAlign: "center", display: "inline" }}
-            onChange={(e) => setSiblings(e.target.value)}
+            onChange={(e) => setSaudaraLk(e.target.value)}
           />
         </Label>
         <Label className="w-full flex  flex-col justify-start gap-1">
@@ -55,9 +56,9 @@ function SignUpInfo() {
           <Input
             type="number"
             name="Saudara"
-            value="0"
+            value={saudaraPr}
             style={{ width: 64, textAlign: "center", display: "inline" }}
-            onChange={(e) => setSiblings(e.target.value)}
+            onChange={(e) => setSaudaraPr(e.target.value)}
           />
         </Label>
       </div>
@@ -75,6 +76,22 @@ function SignUpInfo() {
           <option className="text-base">Kakek dan nenek sudah meniggal</option>
         </Select>
       </Label>
+
+      <div className={ibu === false ? "hidden" : ""}>
+        <Label className={"font-semibold text-xl mt-4"}>
+          Apakah pewaris memiliki saudara satu bapak, beda ibu yang masih hidup?
+        </Label>
+        <div className="mt-2  flex flex-col ">
+          <Label radio>
+            <Input type="radio" value="ya" name="BapakIbu" />
+            <span className="ml-2 text-base">Ya</span>
+          </Label>
+          <Label radio>
+            <Input type="radio" value="tidak" name="BapakIbu" />
+            <span className="ml-2 text-base">Tidak</span>
+          </Label>
+        </div>
+      </div>
     </>
   );
 }
