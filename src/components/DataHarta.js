@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input, HelperText, Label, Select, Textarea } from "@windmill/react-ui";
 
-function PersonalInfo() {
+function PersonalInfo({formData, setFormData}) {
   const jenisHarta = [
     "Rumah",
     "Tanah",
@@ -11,7 +11,9 @@ function PersonalInfo() {
     "Perusahaan",
     "Kendaraan",
   ];
+  
   const [amount, setAmount] = useState(10000);
+
   return (
     <>
       <Label className="font-semibold text-xl">
@@ -19,10 +21,17 @@ function PersonalInfo() {
       </Label>
 
       <div className="flex flex-col mt-2">
-        {jenisHarta.map((h) => {
+        {jenisHarta.map((h, i) => {
           return (
             <Label check>
-              <Input type="checkbox" />
+              <Input
+                type="radio"
+                value={h}
+                name="Jenis Harta"
+                onChange={(e) =>
+                  setFormData({ ...formData, jenisHarta: e.target.value })
+                }
+              />
               <span className="ml-2 text-base">{h}</span>
             </Label>
           );
@@ -33,9 +42,11 @@ function PersonalInfo() {
         Perkiraan total harta yang akan diwariskan
         <Input
           className="mt-2"
-          value={amount}
+          value={formData.totalHarta}
           type="number"
-          onChange={(e) => setAmount(e.target.value)}
+          onChange={(e) =>
+            setFormData({ ...formData, totalHarta: e.target.value })
+          }
         />
       </Label>
     </>

@@ -13,14 +13,10 @@ import { BrowserRouter as Router, Link, NavLink } from "react-router-dom";
 function Form() {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-    firstName: "",
-    lastName: "",
-    username: "",
-    nationality: "",
-    other: "",
+    jenisKelamin : null,
+    statusNikah : null,
+    jenisHarta : null,
+    totalHarta: 0,
   });
 
   const FormTitles = [
@@ -44,6 +40,8 @@ function Form() {
       return <Hasil />;
     }
   };
+
+    console.log(formData);
 
   return (
     <>
